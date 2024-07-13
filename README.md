@@ -108,3 +108,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [react-native-voice](https://github.com/react-native-community/voice) for voice recognition capabilities.
 ```
 
+
+
+ChatGPT Links: 
+1) = https://chatgpt.com/share/ac50aae6-d2a5-4e7f-a86a-f23f6931c0c1
+2) = https://chatgpt.com/share/1c9023fc-2d94-40e2-a203-3d18306bd47d
+3) = https://chatgpt.com/share/4d7f193f-e058-465c-b64a-97e974ce6fc8
