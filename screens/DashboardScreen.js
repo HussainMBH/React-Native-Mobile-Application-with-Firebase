@@ -1,11 +1,10 @@
-// screens/DashboardScreen.js
 import React, { useEffect, useState } from 'react';
+import { TouchableOpacity, Button, View, Text, FlatList, Image, StyleSheet } from "react-native";
 import { signOut } from "firebase/auth";
-import { Button, View, Text, FlatList, Image, StyleSheet } from "react-native";
 import auth from "../services/firebaseAuth";
 import { fetchCharacters } from "../services/thronesApi";
 
-export default function DashboardScreen({navigation}) {
+const DashboardScreen = ({ navigation }) => {
     const [characters, setCharacters] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -32,13 +31,16 @@ export default function DashboardScreen({navigation}) {
             .catch(error => {
                 console.error("Failed to sign out: ", error);
             });
-    }
+    };
 
     const renderCharacter = ({ item }) => (
-        <View style={styles.characterCard}>
-            <Image source={{ uri: item.imageUrl }} style={styles.characterImage} />
-            <Text style={styles.characterName}>{item.fullName}</Text>
-        </View>
+        <TouchableOpacity onPress={() => navigation.navigate('CharacterDetail', { characterId: item.id })}
+        >
+            <View style={styles.characterCard}>
+                <Image source={{ uri: item.imageUrl }} style={styles.characterImage} />
+                <Text style={styles.characterName}>{item.fullName}</Text>
+            </View>
+        </TouchableOpacity>
     );
 
     if (loading) {
@@ -62,7 +64,7 @@ export default function DashboardScreen({navigation}) {
             <Button onPress={handleLogout} title="Logout" />
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -102,3 +104,5 @@ const styles = StyleSheet.create({
         alignItems: "center",
     }
 });
+
+export default DashboardScreen;
